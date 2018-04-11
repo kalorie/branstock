@@ -3,20 +3,20 @@
 * Add as a submodule
 
 ```
-git submodule add project-config <this-url>
+git submodule add <this-url>
 ```
 
 * Reference within build files
 
 ```gradle
 // Root project
-apply from: "project-config/repositories.gradle"
-apply from: "project-config/java.gradle"
-apply from: "project-config/maven.gradle"
+apply from: "branstock/repositories.gradle"
+apply from: "branstock/java.gradle"
+apply from: "branstock/maven.gradle"
 
 // Subproject, for referencing the repo
 buildscript {
-    apply from: "$rootDir/project-config/repositories.gradle"
+    apply from: "$rootDir/branstock/repositories.gradle"
     repositories artifactory
     dependencies {
         classpath "some-plugin"
