@@ -1,0 +1,19 @@
+// REQUIRED
+// apply from: "$rootDir/project-config/repositories.gradle"
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            if (System.properties.release == 'true') {
+                repository(url: releaseRepo) {
+                    authentication(userName: System.properties['user'], password: System.properties['password'])
+                }
+            } else {
+                repository(url: snapshotRepo) {
+                    authentication(userName: user, password: password)
+                }
+            }
+        }
+    }
+}

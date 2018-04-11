@@ -1,0 +1,49 @@
+ext {
+    // Default inner repos
+    defaultRootRepo = "http://192.168.0.199/artifactory/repo/"
+    defaultReleaseRepo = "http://192.168.0.199/artifactory/libs-release-local"
+    defaultSnapshotRepo = "http://192.168.0.199/artifactory/libs-snapshot-local"
+
+    defaultUser  = "test_developer"
+    user = System.properties.user
+    if (user == null || user.isEmpty()) {
+        user = defaultUser
+    }
+
+    defaultPassword = "test_dveloper"
+    password = System.properties.password
+    if (password == null || password.isEmpty()) {
+        password = defaultPassword
+    }
+
+    if (System.properties.local != null) {
+        artifactory = {
+            mavenLocal()
+            jcenter()
+        }
+    } else {
+        artifactory = {
+            maven {
+                credentials {
+                    username user
+                    password password
+                }
+                url = System.properties["url"]
+                if (url == null || url.isEmpty()) {
+                    url defaultRootRepo
+                } else {
+                    url url
+                }
+            }
+        }
+    }
+
+    releaseRepo = System.properties.releaseRepo
+    if (releaseRepo == null || releaseRepo.isEmpty()) {
+        releaseRepo = defaultReleaseRepo
+    }
+    snapshotRepo = System.properties.snapshotRepo
+    if (snapshotRepo == null || snapshotRepo.isEmpty()) {
+        snapshotRepo = defaultSnapshotRepo
+    }
+}
