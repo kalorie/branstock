@@ -10,9 +10,19 @@ git submodule add <this-url>
 
 ```gradle
 // Root project
-apply from: file("branstock/repositories.gradle")
-apply from: file("branstock/java.gradle")
-apply from: file("branstock/maven.gradle")
+buildscript {
+    ext {
+        repo = file("branstock/repositories.gradle")
+        java = file("branstock/java.gradle")
+        maven = file("branstock/maven.gradle")
+    }
+}
+
+subprojects {
+    apply from: repo
+    apply from: java
+    apply from: maven
+}
 
 // Subproject, for referencing the repo
 buildscript {
