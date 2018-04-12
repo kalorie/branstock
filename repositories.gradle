@@ -8,15 +8,15 @@ ext {
     rootRepo = "http://${url}/artifactory/repo/"
 
     defaultUser  = "test_developer"
-    user = System.properties.user
-    if (user == null || user.isEmpty()) {
-        user = defaultUser
+    repoUser = System.properties.user
+    if (repoUser == null || repoUser.isEmpty()) {
+        repoUser = defaultUser
     }
 
     defaultPassword = "test_developer"
-    password = System.properties.password
-    if (password == null || password.isEmpty()) {
-        password = defaultPassword
+    repoPassword = System.properties.password
+    if (repoPassword == null || repoPassword.isEmpty()) {
+        repoPassword = defaultPassword
     }
 
     if (System.properties.local != null) {
@@ -28,8 +28,8 @@ ext {
         artifactory = {
             maven {
                 credentials {
-                    username user
-                    password password
+                    username repoUser
+                    password repoPassword
                 }
                 url rootRepo
             }
