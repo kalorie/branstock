@@ -1,8 +1,11 @@
 ext {
     // Default inner repos
-    defaultRootRepo = "http://192.168.0.199/artifactory/repo/"
-    defaultReleaseRepo = "http://192.168.0.199/artifactory/libs-release-local"
-    defaultSnapshotRepo = "http://192.168.0.199/artifactory/libs-snapshot-local"
+    defaultUrl = '192.168.0.199'
+    url = System.properties.url
+    if (url == null || url.isEmpty()) {
+        url = defaultUrl
+    }
+    rootRepo = "http://${url}/artifactory/repo/"
 
     defaultUser  = "test_developer"
     user = System.properties.user
@@ -10,7 +13,7 @@ ext {
         user = defaultUser
     }
 
-    defaultPassword = "test_dveloper"
+    defaultPassword = "test_developer"
     password = System.properties.password
     if (password == null || password.isEmpty()) {
         password = defaultPassword
@@ -28,20 +31,18 @@ ext {
                     username user
                     password password
                 }
-                url = System.properties["url"]
-                if (url == null || url.isEmpty()) {
-                    url defaultRootRepo
-                } else {
-                    url url
-                }
+                url rootRepo
             }
         }
     }
 
+    defaultReleaseRepo = "http://${url}/artifactory/libs-release-local"
     releaseRepo = System.properties.releaseRepo
     if (releaseRepo == null || releaseRepo.isEmpty()) {
         releaseRepo = defaultReleaseRepo
     }
+
+    defaultSnapshotRepo = "http://${url}/artifactory/libs-snapshot-local"
     snapshotRepo = System.properties.snapshotRepo
     if (snapshotRepo == null || snapshotRepo.isEmpty()) {
         snapshotRepo = defaultSnapshotRepo

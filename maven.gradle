@@ -7,7 +7,7 @@ uploadArchives {
         mavenDeployer {
             if (System.properties.release == 'true') {
                 repository(url: releaseRepo) {
-                    authentication(userName: System.properties['user'], password: System.properties['password'])
+                    authentication(userName: user, password: password)
                 }
             } else {
                 repository(url: snapshotRepo) {
