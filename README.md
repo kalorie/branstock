@@ -1,12 +1,12 @@
 # Usage
 
-* Add as a submodule
+## Add as a submodule
 
 ```
 git submodule add <this-url>
 ```
 
-* Reference within build files
+## Reference within build files
 
 ```gradle
 // Root project
@@ -33,6 +33,16 @@ buildscript {
     }
 }
 ```
+
+## Pass different params by system properties
+
+The following system properties could be passed during gradle task execution, e.g. `-Durl=<external-url>`.
+
+* `url`: the host of the repository
+* `user`: username
+* `password`: password
+* `releaseRepo`: FQDN of the release repo, e.g. `http://xxx/artifactory/libs-release-repo`
+* `snapshotRepo`: FQDN of the snapshot repo, e.g. `http://xxx/artifactory/libs-snapshot-repo`
 
 # Attic
 
