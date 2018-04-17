@@ -38,7 +38,8 @@ buildscript {
 
 The following system properties could be passed during gradle task execution, e.g. `-Durl=<external-url>`.
 
-* `url`: the host of the repository
+* `url`: the host of the repository contained in `rootRepo`
+* `rootRepo`: FQDN of the repo, to download artifacts
 * `user`: username
 * `password`: password
 * `releaseRepo`: FQDN of the release repo, e.g. `http://xxx/artifactory/libs-release-repo`

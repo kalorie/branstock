@@ -5,7 +5,12 @@ ext {
     if (url == null || url.isEmpty()) {
         url = defaultUrl
     }
-    rootRepo = "http://${url}/artifactory/repo/"
+
+    defaultRootRepo = "http://${url}/artifactory/repo"
+    rootRepo = System.properties.rootRepo
+    if (rootRepo == null || rootRepo.isEmpty()) {
+        rootRepo = defaultRootRepo
+    }
 
     defaultUser  = "test_developer"
     repoUser = System.properties.user
