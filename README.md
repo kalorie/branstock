@@ -47,7 +47,7 @@ The following system properties could be passed during gradle task execution, e.
 
 For the repository hosted by Nexus, the FQDN may be as follows:
 
-* `rootRepo`: `http://x.x.x.x:8081/repository/maven-public
+* `rootRepo`: `http://x.x.x.x:8081/repository/maven-public`
 * `releaseRepo`: `http://x.x.x.x:8081/repository/maven-releases`
 * `snapshotRepo`: `http://x.x.x.x:8081/repository/maven-snapshots`
 
