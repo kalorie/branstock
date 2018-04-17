@@ -45,6 +45,12 @@ The following system properties could be passed during gradle task execution, e.
 * `releaseRepo`: FQDN of the release repo, e.g. `http://xxx/artifactory/libs-release-repo`
 * `snapshotRepo`: FQDN of the snapshot repo, e.g. `http://xxx/artifactory/libs-snapshot-repo`
 
+For the repository hosted by Nexus, the FQDN may be as follows:
+
+* `rootRepo`: `http://x.x.x.x:8081/repository/maven-public
+* `releaseRepo`: `http://x.x.x.x:8081/repository/maven-releases`
+* `snapshotRepo`: `http://x.x.x.x:8081/repository/maven-snapshots`
+
 # Attic
 
 How to ignore specific files during merging:
