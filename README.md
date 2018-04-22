@@ -51,6 +51,12 @@ For the repository hosted by Nexus, the FQDN may be as follows:
 * `releaseRepo`: `http://x.x.x.x:8081/repository/maven-releases`
 * `snapshotRepo`: `http://x.x.x.x:8081/repository/maven-snapshots`
 
+## Download from different repositories
+
+* `local` - Local maven repository, typically `$USER/.m2/repository`;
+* `internet` - Maven central and jcenter;
+* Private maven repositories such as Artifactory and Nexus deployed within your company. 
+
 # Attic
 
 How to ignore specific files during merging:
