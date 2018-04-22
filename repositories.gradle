@@ -27,7 +27,11 @@ ext {
     if (System.properties.local != null) {
         artifactory = {
             mavenLocal()
+        }
+    } else if (System.properties.internet != null) {
+        artifactory = {
             jcenter()
+            mavenCentral()
         }
     } else {
         artifactory = {
