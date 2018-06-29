@@ -9,8 +9,15 @@ repositories artifactory
 [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 
 compileJava {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    def javaVersion = System.properties.javaVersion
+    if (javaVersion != null) {
+        def javaVersionValue = Float.valueOf(javaVersion)
+        sourceCompatibility = javaVersionValue
+        targetCompatibility = javaVersionValue
+    } else {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
     options.encoding = "UTF-8"
 }
 
