@@ -1,3 +1,7 @@
+# Original thoughts
+
+[Share repo with subprojects](https://gist.github.com/kalorie/a92eb99ece99e8b81a73dda58ab4ce21)
+
 # Usage
 
 ## Add as a submodule
